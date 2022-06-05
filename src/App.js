@@ -8,8 +8,8 @@ import { ALL_AUTHORS, ALL_BOOKS } from './queries'
 const App = () => {
   const [page, setPage] = useState('authors')
 
-  const resultAT = useQuery(ALL_AUTHORS);
-  const resultBK = useQuery(ALL_BOOKS);
+  const resultAT = useQuery(ALL_AUTHORS, { pollInterval: 2000 });
+  const resultBK = useQuery(ALL_BOOKS, { pollInterval: 2000 });
   
   if (resultAT.loading || resultBK.loading)  {
     return <div>loading...</div>
