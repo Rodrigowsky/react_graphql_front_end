@@ -29,10 +29,9 @@ const Authors = (props) => {
 
   
   let authors = [];
-
-  
-    authors = [...props.authors];
-  
+    
+  authors = [...props.authors];
+  console.log("authors",authors)
 
   return (
     <div>
@@ -45,7 +44,7 @@ const Authors = (props) => {
             <th>books</th>
           </tr>
           {authors.map((a) => (
-            <tr key={a.author}>
+            <tr key={a.author + Math.random()}>
               <td>{a.author}</td>
               <td>{a.born}</td>
               <td>{a.bookCount}</td>
@@ -60,7 +59,7 @@ const Authors = (props) => {
             <select name="name" id="name-select" onChange={({ target }) => setName(target.value)}>
             <option value="">--Please choose an option--</option>
             {authors.map((a) => (
-              <option value={a.author}>{a.author}</option>
+              <option key={a.author + Math.random()} value={a.author}>{a.author}</option>
           ))}
           </select>
           </div>
